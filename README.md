@@ -1,6 +1,6 @@
-# calculadora_imc_flutter
+# Calculadora_IMC_flutter
 
-A new Flutter project.
+Projeto para aprender novas funções no Flutter
 
 ## Getting Started
 
