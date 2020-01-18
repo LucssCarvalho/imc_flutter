@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       if (imc < 18.6) {
         _infoText = 'Abaixo do Peso';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é:' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
       } else if (imc >= 18.6 && imc < 24.9) {
         _infoText = 'Peso Ideal';
         result_imc = imc;
@@ -49,19 +49,19 @@ class _HomeState extends State<Home> {
       } else if (imc >= 24.9 && imc < 29.9) {
         _infoText = 'Levemente Acima do Peso';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é:' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
       } else if (imc >= 29.9 && imc < 34.9) {
         _infoText = 'Obesidade Grau I';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é:' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
       } else if (imc >= 34.9 && imc < 39.9) {
         _infoText = 'Obesidade Grau II';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é:' + ideal.toStringAsPrecision(4);
+        resul_ideal = ideal.toStringAsPrecision(4);
       } else if (imc >= 40) {
         _infoText = 'Obesidade Grau III';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é:' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
       }
     });
   }
@@ -204,7 +204,7 @@ class _DetailPageState extends State<DetailPage> {
       ),
       body: Container(
         color: Colors.blue[800],
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(25),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -215,22 +215,18 @@ class _DetailPageState extends State<DetailPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Text(
+                'Seu IMC é: ' + widget.imc.toStringAsPrecision(4),
+                style: TextStyle(fontSize: 30.0, color: Colors.blueGrey[900]),
+              ),
               aparecerImagem(widget.imc),
-              Column(
-                children: <Widget>[
-                  Text(
-                    'Seu IMC é: ' + widget.imc.toStringAsPrecision(4),
-                    style: TextStyle(fontSize: 30.0, color: Colors.blueGrey),
-                  ),
-                  Text(
-                    widget._infoText,
-                    style: TextStyle(fontSize: 30.0, color: Colors.blue),
-                  ),
-                  Text(
-                    widget.idealPeso,
-                    style: TextStyle(fontSize: 30.0, color: Colors.blue),
-                  ),
-                ],
+              Text(
+                widget._infoText,
+                style: TextStyle(fontSize: 20.0, color: Colors.blue),
+              ),
+              Text(
+                widget.idealPeso,
+                style: TextStyle(fontSize: 30.0, color: Colors.green),
               ),
             ],
           ),
@@ -250,27 +246,57 @@ Widget aparecerImagem(double imc) {
 
   if (imc < 18.6) {
     return Center(
-      child: Image.asset(corp_1),
+      child: Container(
+        child: Image.asset(
+          corp_1,
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   } else if (imc >= 18.6 && imc < 24.9) {
     return Center(
-      child: Image.asset(corp_2),
+      child: Container(
+        child: Image.asset(
+          corp_2,
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   } else if (imc >= 24.9 && imc < 29.9) {
     return Center(
-      child: Image.asset(corp_3),
+      child: Container(
+        child: Image.asset(
+          corp_3,
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   } else if (imc >= 29.9 && imc < 34.9) {
     return Center(
-      child: Image.asset(corp_4),
+      child: Container(
+        child: Image.asset(
+          corp_4,
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   } else if (imc >= 34.9 && imc < 39.9) {
     return Center(
-      child: Image.asset(corp_5),
+      child: Container(
+        child: Image.asset(
+          corp_5,
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   } else if (imc >= 40) {
     return Center(
-      child: Image.asset(corp_6),
+      child: Container(
+        child: Image.asset(
+          corp_6,
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   }
 }
