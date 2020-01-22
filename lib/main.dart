@@ -36,12 +36,16 @@ class _HomeState extends State<Home> {
       double weight = double.parse(weightController.text);
       double height = double.parse(heightController.text) / 100;
       double imc = weight / (height * height);
-      double ideal = 21.75 * (height * height);
+      double idealMin = 18.6 * (height * height);
+      double ideialMax = 24.9 * (height * height);
 
       if (imc < 18.6) {
         _infoText = 'Abaixo do Peso';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial está entre: ' +
+            idealMin.toStringAsPrecision(4) +
+            ' e ' +
+            ideialMax.toStringAsPrecision(4);
       } else if (imc >= 18.6 && imc < 24.9) {
         _infoText = 'Peso Ideal';
         result_imc = imc;
@@ -49,19 +53,31 @@ class _HomeState extends State<Home> {
       } else if (imc >= 24.9 && imc < 29.9) {
         _infoText = 'Levemente Acima do Peso';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial está entre: ' +
+            idealMin.toStringAsPrecision(4) +
+            ' e ' +
+            ideialMax.toStringAsPrecision(4);
       } else if (imc >= 29.9 && imc < 34.9) {
         _infoText = 'Obesidade Grau I';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial está entre: ' +
+            idealMin.toStringAsPrecision(4) +
+            ' e ' +
+            ideialMax.toStringAsPrecision(4);
       } else if (imc >= 34.9 && imc < 39.9) {
         _infoText = 'Obesidade Grau II';
         result_imc = imc;
-        resul_ideal = ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial está entre: ' +
+            idealMin.toStringAsPrecision(4) +
+            ' e ' +
+            ideialMax.toStringAsPrecision(4);
       } else if (imc >= 40) {
         _infoText = 'Obesidade Grau III';
         result_imc = imc;
-        resul_ideal = 'Seu peso ideial é: ' + ideal.toStringAsPrecision(4);
+        resul_ideal = 'Seu peso ideial está entre: ' +
+            idealMin.toStringAsPrecision(4) +
+            ' e ' +
+            ideialMax.toStringAsPrecision(4);
       }
     });
   }
@@ -226,7 +242,8 @@ class _DetailPageState extends State<DetailPage> {
               ),
               Text(
                 widget.idealPeso,
-                style: TextStyle(fontSize: 30.0, color: Colors.green),
+                style: TextStyle(fontSize: 15.0, color: Colors.green),
+                textAlign: TextAlign.center,
               ),
             ],
           ),
